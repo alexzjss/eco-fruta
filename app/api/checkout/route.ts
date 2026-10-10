@@ -9,18 +9,29 @@ function isOrderPayload(value: unknown): value is OrderPayload {
   const order = value as Partial<OrderPayload>;
   const address = order.deliveryAddress;
   return Array.isArray(order.items) &&
+    order.items.length > 0 &&
+    order.items.length <= 50 &&
+    order.items.every((item) => item && typeof item === 'object' && typeof item.product?.id === 'string' && Number.isInteger(item.quantity)) &&
     typeof order.shippingAddress === 'string' &&
     order.shippingAddress.trim().length >= 8 &&
+    order.shippingAddress.length <= 500 &&
     !!address &&
     typeof address === 'object' &&
+    typeof address.cep === 'string' &&
     /^\d{8}$/.test(address.cep.replace(/\D/g, '')) &&
     typeof address.street === 'string' &&
+    address.street.length <= 120 &&
     typeof address.number === 'string' &&
     address.number.trim().length > 0 &&
+    address.number.length <= 20 &&
     typeof address.complement === 'string' &&
+    address.complement.length <= 120 &&
     typeof address.neighborhood === 'string' &&
+    address.neighborhood.length <= 120 &&
     typeof address.city === 'string' &&
-    typeof address.state === 'string';
+    address.city.length <= 120 &&
+    typeof address.state === 'string' &&
+    /^[A-Za-z]{2}$/.test(address.state);
 }
 
 export async function POST(request: Request) {
