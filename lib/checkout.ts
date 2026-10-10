@@ -1,8 +1,17 @@
 import { OrderPayload } from '../types';
 
-export async function processCheckout(orderPayload: OrderPayload): Promise<{ orderId: string }> {
+export async function processCheckout(orderPayload: OrderPayload): Promise<{ orderId: string; initPoint: string }> {
   if (!orderPayload.items.length) throw new Error('Seu carrinho está vazio.');
   if (!orderPayload.shippingAddress.trim()) throw new Error('Informe um endereço de entrega.');
-  await new Promise((resolve) => setTimeout(resolve, 500));
-  return { orderId: `ECO-${Date.now().toString(36).toUpperCase()}` };
+
+  const response = await fetch('/api/checkout', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(orderPayload)
+  });
+  const result: { orderId?: string; initPoint?: string; error?: string } = await response.json();
+  if (!response.ok || !result.initPoint || !result.orderId) {
+    throw new Error(result.error || 'Não foi possível iniciar o pagamento.');
+  }
+  return { orderId: result.orderId, initPoint: result.initPoint };
 }
