@@ -325,3 +325,19 @@ footer { background: var(--brown); border-top: 5px solid var(--orange); }.footer
 @media (max-width: 800px) { .main-collage { width: min(100%, 430px); height: 390px; margin: 42px auto 0; flex-basis: auto; }.main-polaroid { width: 255px; left: 17%; }.main-polaroid-image { height: 245px; }.main-organic-sticker { width: 88px; height: 88px; font-size: 17px; }.main-harvest-sticker { top: 190px; }.main-delivery-card { right: 0; bottom: 17px; } }
 @media (max-width: 500px) { .main-collage { height: 350px; }.main-polaroid { width: 220px; left: 16%; top: 24px; }.main-polaroid-image { height: 210px; }.main-polaroid-caption { font-size: 12px; }.main-organic-sticker { top: 0; right: -2px; width: 78px; height: 78px; font-size: 15px; }.main-organic-sticker small { font-size: 8px; }.main-harvest-sticker { top: 170px; left: 0; font-size: 10px; }.main-delivery-card { right: -2px; bottom: 8px; }.main-doodle-one { left: 0; bottom: 58px; } }
 @media (prefers-reduced-motion: reduce) { .main-organic-sticker, .main-harvest-sticker { animation: none; } }
+
+/* The mascot is the visual anchor of the header. */
+.navbar .brand-mark { width: 76px; height: 76px; flex: 0 0 76px; overflow: hidden; border-radius: 50%; box-shadow: 4px 4px 0 var(--brown); }
+.navbar .brand-mark img { width: 100%; height: 100%; object-fit: cover; }
+.navbar .brand { gap: 13px; }
+.desktop-nav .desktop-brand-mark { width: 76px; height: 76px; flex: 0 0 76px; overflow: hidden; box-shadow: 4px 4px 0 var(--ink); }
+.desktop-nav .desktop-brand-mark img { width: 100%; height: 100%; object-fit: cover; }
+.desktop-brand { gap: 13px; }
+@media (max-width: 800px) {
+  .navbar .brand-mark { width: 64px; height: 64px; flex-basis: 64px; }
+  .navbar .brand-mark img { width: 100%; height: 100%; }
+}
+@media (max-width: 720px) {
+  .desktop-nav .desktop-brand-mark { width: 64px; height: 64px; flex-basis: 64px; }
+  .desktop-nav .desktop-brand-mark img { width: 100%; height: 100%; }
+}
