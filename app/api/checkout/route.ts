@@ -7,9 +7,20 @@ const ACCESS_TOKEN = process.env.MERCADOPAGO_ACCESS_TOKEN;
 function isOrderPayload(value: unknown): value is OrderPayload {
   if (!value || typeof value !== 'object') return false;
   const order = value as Partial<OrderPayload>;
+  const address = order.deliveryAddress;
   return Array.isArray(order.items) &&
     typeof order.shippingAddress === 'string' &&
-    order.shippingAddress.trim().length >= 8;
+    order.shippingAddress.trim().length >= 8 &&
+    !!address &&
+    typeof address === 'object' &&
+    /^\d{8}$/.test(address.cep.replace(/\D/g, '')) &&
+    typeof address.street === 'string' &&
+    typeof address.number === 'string' &&
+    address.number.trim().length > 0 &&
+    typeof address.complement === 'string' &&
+    typeof address.neighborhood === 'string' &&
+    typeof address.city === 'string' &&
+    typeof address.state === 'string';
 }
 
 export async function POST(request: Request) {
@@ -39,7 +50,12 @@ export async function POST(request: Request) {
       back_urls: { success: `${origin}/?checkout=success`, failure: `${origin}/?checkout=failure`, pending: `${origin}/?checkout=pending` },
       auto_return: 'approved',
       notification_url: `${origin}/api/checkout/webhook`,
-      metadata: { shipping_address: payload.shippingAddress, subtotal, shipping_fee: shippingFee }
+      metadata: {
+        shipping_address: payload.shippingAddress,
+        delivery_address: payload.deliveryAddress,
+        subtotal,
+        shipping_fee: shippingFee
+      }
     };
 
     const response = await fetch('https://api.mercadopago.com/checkout/preferences', {

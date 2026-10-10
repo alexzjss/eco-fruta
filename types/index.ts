@@ -27,9 +27,20 @@ export interface CartItem {
   quantity: number;
 }
 
+export interface DeliveryAddress {
+  cep: string;
+  street: string;
+  number: string;
+  complement: string;
+  neighborhood: string;
+  city: string;
+  state: string;
+}
+
 export interface OrderPayload {
   items: CartItem[];
   shippingAddress: string;
+  deliveryAddress: DeliveryAddress;
   shippingFee: number;
   subtotal: number;
   total: number;
