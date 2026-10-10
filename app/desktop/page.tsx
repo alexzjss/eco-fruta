@@ -20,7 +20,7 @@ export default function DesktopHeroPreview() {
     <main className="desktop-preview">
       <header className="desktop-nav">
         <Link href="/" className="desktop-brand">
-          <span className="desktop-brand-mark"><img src="/mascot.svg" alt="" /></span>
+          <span className="desktop-brand-mark"><img src="/mascot.png" alt="" /></span>
           <span><strong>Eco fruta</strong><small>feira virtual de orgânicos</small></span>
         </Link>
         <nav aria-label="Navegação principal">
