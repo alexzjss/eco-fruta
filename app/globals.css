@@ -301,3 +301,23 @@ footer { background: var(--brown); border-top: 5px solid var(--orange); }.footer
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
 }
+
+/* Homepage hero collage: the same editorial pop language used by the desktop preview. */
+.main-collage { width: min(540px, 48vw); height: 430px; position: relative; flex: 0 1 540px; }
+.main-collage-paper { position: absolute; inset: 23px 18px 22px 35px; background: #bfe0a7; border: 2px solid var(--brown); box-shadow: 7px 7px 0 var(--brown); transform: rotate(3deg); }
+.main-collage-paper::after { content: ''; position: absolute; inset: 13px; border: 2px dashed var(--green-dark); opacity: .55; }
+.main-polaroid { position: absolute; z-index: 2; width: 285px; top: 31px; left: 18%; padding: 10px 10px 16px; background: #fffefb; border: 2px solid var(--brown); box-shadow: 8px 8px 0 var(--brown); transform: rotate(-5deg); }
+.main-polaroid-image { height: 275px; background: url('https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=800&q=85') center/cover; }
+.main-polaroid-caption { padding-top: 10px; text-align: center; font-family: 'Paytone One', sans-serif; font-size: 14px; }
+.main-polaroid-caption small { display: block; margin-top: 2px; color: var(--orange); font-family: 'DM Mono', monospace; font-size: 8px; text-transform: uppercase; }
+.main-organic-sticker { position: absolute; z-index: 4; top: 6px; right: 0; width: 98px; height: 98px; display: grid; place-content: center; border: 2px solid var(--brown); border-radius: 50%; background: var(--yellow); box-shadow: 5px 5px 0 var(--brown); text-align: center; font-family: 'Paytone One', sans-serif; font-size: 20px; line-height: .9; transform: rotate(12deg); animation: main-sticker-float 4s ease-in-out infinite; }
+.main-organic-sticker small { display: block; font-family: 'DM Mono', monospace; font-size: 10px; text-transform: uppercase; }
+.main-harvest-sticker { position: absolute; z-index: 5; top: 205px; left: 0; padding: 10px 13px; border: 2px solid var(--brown); background: var(--pink); box-shadow: 4px 4px 0 var(--brown); font-size: 11px; font-weight: 900; transform: rotate(-7deg); animation: main-sticker-float 4.5s .7s ease-in-out infinite; }
+.main-delivery-card { position: absolute; z-index: 5; right: 0; bottom: 25px; display: grid; grid-template-columns: auto 1fr; column-gap: 8px; padding: 10px 12px; background: #fffdf8; border: 2px solid var(--brown); box-shadow: 5px 5px 0 var(--orange); transform: rotate(3deg); }
+.main-delivery-card span { grid-row: span 2; color: var(--orange); font-size: 16px; }.main-delivery-card b, .main-delivery-card small { display: block; }.main-delivery-card b { font-size: 10px; }.main-delivery-card small { color: var(--muted); font-family: 'DM Mono', monospace; font-size: 8px; }
+.main-doodle { position: absolute; z-index: 3; color: var(--orange); font-size: 30px; }.main-doodle-one { left: 2%; bottom: 70px; transform: rotate(16deg); }.main-doodle-two { right: 12%; bottom: 1px; color: var(--pink); transform: rotate(-14deg); }
+@keyframes main-sticker-float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -7px; } }
+@media (max-width: 1100px) and (min-width: 801px) { .main-collage { width: 420px; flex-basis: 420px; transform: scale(.88); transform-origin: right center; margin-left: -35px; } .main-polaroid { left: 15%; } }
+@media (max-width: 800px) { .main-collage { width: min(100%, 430px); height: 390px; margin: 42px auto 0; flex-basis: auto; }.main-polaroid { width: 255px; left: 17%; }.main-polaroid-image { height: 245px; }.main-organic-sticker { width: 88px; height: 88px; font-size: 17px; }.main-harvest-sticker { top: 190px; }.main-delivery-card { right: 0; bottom: 17px; } }
+@media (max-width: 500px) { .main-collage { height: 350px; }.main-polaroid { width: 220px; left: 16%; top: 24px; }.main-polaroid-image { height: 210px; }.main-polaroid-caption { font-size: 12px; }.main-organic-sticker { top: 0; right: -2px; width: 78px; height: 78px; font-size: 15px; }.main-organic-sticker small { font-size: 8px; }.main-harvest-sticker { top: 170px; left: 0; font-size: 10px; }.main-delivery-card { right: -2px; bottom: 8px; }.main-doodle-one { left: 0; bottom: 58px; } }
+@media (prefers-reduced-motion: reduce) { .main-organic-sticker, .main-harvest-sticker { animation: none; } }
