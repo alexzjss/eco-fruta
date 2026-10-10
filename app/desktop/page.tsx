@@ -1,9 +1,7 @@
 import Link from 'next/link';
 import {
   ArrowUpRight,
-  ChevronRight,
   Leaf,
-  MapPin,
   ShoppingBasket,
   Sparkles,
   Star,
@@ -30,7 +28,6 @@ export default function DesktopHeroPreview() {
           <a href="#catalogo">CATÁLOGO</a>
           <a href="#produtores">PRODUTORES</a>
         </nav>
-        <div className="desktop-nav-note"><MapPin size={15} /> entregas locais e conscientes</div>
       </header>
 
       <section className="desktop-hero" id="inicio">
@@ -46,7 +43,7 @@ export default function DesktopHeroPreview() {
             <div className="avatar-stack" aria-label="Clientes da Eco fruta">
               {customers.map((customer) => <span key={customer.initials} style={{ backgroundColor: customer.color }}>{customer.initials}</span>)}
             </div>
-            <div className="proof-copy"><span><Star size={13} fill="currentColor" /> <b>4.9/5</b></span><small>Mais de 1.000 entregas locais nesta semana</small></div>
+            <div className="proof-copy"><span><Star size={13} fill="currentColor" /> <b>4.9/5</b></span><small>Mais de 1.000 pedidos nesta semana</small></div>
           </div>
         </div>
 
@@ -64,7 +61,6 @@ export default function DesktopHeroPreview() {
           </div>
           <div className="organic-sticker">100%<br /><span>orgânico</span></div>
           <div className="harvest-sticker"><Leaf size={16} /> Colhido Hoje <span>🚜</span></div>
-          <div className="delivery-card"><MapPin size={18} /><span><b>Entregas locais</b><small>Franco da Rocha e região</small></span><ChevronRight size={16} /></div>
         </div>
       </section>
 
