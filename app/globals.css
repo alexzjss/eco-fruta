@@ -18,3 +18,139 @@ footer { background: var(--brown); color: white; display: flex; align-items: cen
 .cart-overlay, .modal-backdrop { position: fixed; inset: 0; background: #33231c99; z-index: 20; display: flex; justify-content: flex-end; }.cart-panel { width: min(440px, 100%); height: 100%; overflow: auto; background: white; padding: 34px 28px; }.panel-heading { display: flex; justify-content: space-between; }.panel-heading h2 { margin: 5px 0 22px; font-size: 30px; }.close-button { background: none; color: var(--brown); }.cart-items { border-top: 1px solid var(--line); }.cart-item { display: flex; gap: 13px; padding: 18px 0; border-bottom: 1px solid var(--line); }.cart-emoji { width: 58px; height: 58px; background: #f3f6ee; border-radius: 16px; display: grid; place-items: center; font-size: 29px; }.cart-item-main { flex: 1; }.cart-item h3 { margin: 0 0 2px; font-size: 16px; }.cart-item small { color: var(--muted); font-size: 11px; }.cart-line { margin-top: 10px; }.remove-button { padding: 0; margin-top: 8px; display: flex; align-items: center; gap: 4px; color: #a46855; background: none; font-size: 11px; }.order-summary { margin-top: 25px; }.summary-row, .summary-total { display: flex; justify-content: space-between; padding: 7px 0; color: var(--muted); }.summary-total { color: var(--brown); font-size: 24px; font-weight: 900; border-top: 1px solid var(--line); margin-top: 8px; padding-top: 15px; }.order-summary label { display: block; font-size: 12px; font-weight: 900; margin: 20px 0 8px; }.order-summary textarea { width: 100%; min-height: 76px; padding: 12px; border: 1px solid var(--line); border-radius: 15px; resize: vertical; outline-color: var(--green); }.full { width: 100%; margin-top: 16px; }.primary-button:disabled { opacity: .6; cursor: wait; }.empty-cart { text-align: center; padding: 70px 20px; color: var(--muted); }.empty-cart span { font-size: 60px; }.empty-cart h3 { color: var(--brown); }.modal-backdrop { align-items: center; justify-content: center; padding: 20px; }.contact-modal { max-width: 390px; width: 100%; background: white; border-radius: 28px; text-align: center; padding: 32px; position: relative; }.contact-modal img { width: 92px; height: 92px; object-fit: cover; border-radius: 28px; margin-bottom: 20px; }.modal-close { position: absolute; right: 18px; top: 18px; }.contact-modal h2 { margin: 6px 0; }.contact-modal p { color: var(--muted); font-size: 14px; line-height: 1.5; }.contact-modal small { color: var(--muted); display: block; margin-top: 15px; }.toast { position: fixed; z-index: 30; bottom: 25px; left: 50%; transform: translateX(-50%); padding: 13px 20px; background: var(--brown); color: white; border-radius: 22px; font-size: 13px; box-shadow: 0 8px 25px #0003; }
 @media (max-width: 900px) { .navbar nav { display: none; }.hero { padding-top: 50px; }.hero-art { width: 330px; height: 270px; }.product-grid { grid-template-columns: repeat(3, 1fr); }.producer-grid { grid-template-columns: 1fr; } }
 @media (max-width: 650px) { .navbar { height: 68px; padding: 0 18px; }.brand { min-width: auto; }.brand strong { font-size: 17px; }.brand small { display: none; }.nav-actions { min-width: auto; gap: 12px; }.search-input { width: 110px; }.hero { min-height: auto; display: block; padding: 55px 24px 45px; }.hero h1 { font-size: 42px; }.hero-art { margin: 45px auto 0; width: 290px; height: 220px; }.section { padding: 55px 20px; }.category-grid, .product-grid { grid-template-columns: repeat(2, 1fr); }.category-grid { gap: 10px; }.category-card { padding: 16px; border-radius: 20px; }.category-icon { font-size: 42px; }.category-card h3 { font-size: 17px; }.category-card p { font-size: 12px; }.filter-row { display: block; }.result-count { display: block; margin-top: 12px; }.filters { overflow-x: auto; }.filters button { white-space: nowrap; padding: 7px 12px; }.product-image { height: 120px; font-size: 56px; }.product-info { padding: 12px; }.product-info h3 { font-size: 17px; }.quantity { gap: 5px; }.producer-card { padding: 16px; }.producer-card img { width: 58px; height: 58px; }.producer-card p { font-size: 11px; }footer { display: block; text-align: center; }footer p { margin: 15px 0; } }
+
+.brand-mark img { width: 34px; height: 34px; display: block; }
+.product-image img { width: 100%; height: 100%; object-fit: cover; transition: transform .3s; }
+.product-card:hover .product-image img { transform: scale(1.06); }
+.product-producer { display: block; margin: -8px 0 14px; color: var(--muted); font-size: 11px; }
+.cart-emoji { object-fit: cover; }
+.order-summary input { width: 100%; padding: 12px; border: 1px solid var(--line); border-radius: 15px; outline-color: var(--green); }
+
+.hero { position: relative; isolation: isolate; background: #f3f6ee radial-gradient(circle at 78% 15%, #fff9d3 0 8%, transparent 8.5%), linear-gradient(135deg, #f3f6ee 0%, #eef4e5 55%, #e1edda 100%); }
+.hero::before, .hero::after { content: ''; position: absolute; pointer-events: none; border-radius: 50%; }
+.hero::before { width: 420px; height: 420px; right: 2%; top: -245px; border: 1px solid #72a05b33; box-shadow: 0 0 0 28px #72a05b0d, 0 0 0 56px #72a05b08; }
+.hero::after { width: 220px; height: 220px; left: 47%; bottom: -175px; background: #d1e2c533; }
+.hero-art { width: 490px; height: 390px; border-radius: 42% 58% 62% 38%; transform: rotate(-4deg); background: linear-gradient(145deg, #c9dfbc 0%, #abc99c 100%); box-shadow: 22px 26px 0 #557c4514, inset 10px 12px 0 #ffffff40; overflow: hidden; }
+.hero-art::before { content: ''; position: absolute; inset: 22px; border: 1px dashed #557c4545; border-radius: 42% 58% 62% 38%; }
+.art-glow { position: absolute; width: 240px; height: 240px; right: 60px; top: 65px; border-radius: 50%; background: #fff7c97a; filter: blur(2px); }
+.sun { width: 145px; height: 145px; right: 54px; top: 29px; background: #f7ce78; box-shadow: 0 10px 30px #d9974b30; }
+.leaf { position: absolute; z-index: 2; width: 92px; height: 42px; border-radius: 100% 0 100% 0; background: #5e914e; transform: rotate(-25deg); }
+.leaf::after { content: ''; position: absolute; left: 14px; right: 9px; top: 20px; height: 2px; background: #d8edbd99; transform: rotate(-12deg); }
+.leaf-one { left: 42px; top: 34px; }.leaf-two { right: 28px; bottom: 38px; transform: rotate(155deg) scale(.68); background: #6ca95b; }
+.fruit { position: absolute; z-index: 3; display: grid; place-items: center; border-radius: 50%; filter: drop-shadow(0 13px 8px #557c4540); animation: fruit-float 5s ease-in-out infinite; }
+.fruit span { display: block; transform: rotate(4deg); }.fruit-orange { width: 102px; height: 102px; left: 82px; top: 105px; background: #f09a40; font-size: 61px; }.fruit-apple { width: 124px; height: 124px; left: 196px; top: 168px; background: #e76d4c; font-size: 76px; animation-delay: -1.4s; }.fruit-lemon { width: 91px; height: 91px; right: 50px; top: 158px; background: #f3c95e; font-size: 56px; animation-delay: -2.5s; }.fruit-tomato { width: 72px; height: 72px; left: 66px; bottom: 35px; background: #e4694e; font-size: 45px; animation-delay: -3.3s; }.fruit-berry { width: 62px; height: 62px; right: 124px; bottom: 44px; background: #8f83be; font-size: 39px; animation-delay: -4s; }
+.market-card { z-index: 5; left: 28px; bottom: 28px; transform: rotate(4deg); box-shadow: 0 12px 25px #557c4535; }.art-caption { position: absolute; z-index: 5; right: 24px; top: 305px; display: flex; flex-direction: column; align-items: flex-end; color: var(--green-dark); font-size: 10px; letter-spacing: 1.2px; text-transform: uppercase; transform: rotate(-3deg); }.art-caption strong { color: var(--brown); font-size: 14px; letter-spacing: 0; text-transform: none; }
+@keyframes fruit-float { 0%, 100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-8px) rotate(3deg); } }
+@media (max-width: 900px) { .hero-art { width: 390px; height: 315px; }.fruit-orange { left: 60px; top: 82px; }.fruit-apple { left: 154px; top: 132px; }.fruit-lemon { right: 34px; top: 122px; }.fruit-tomato { left: 46px; bottom: 22px; }.fruit-berry { right: 96px; bottom: 28px; } }
+@media (max-width: 650px) { .hero-art { width: 290px; height: 220px; }.hero-art::before { inset: 14px; }.art-glow { width: 140px; height: 140px; right: 45px; top: 38px; }.sun { width: 88px; height: 88px; right: 30px; top: 19px; }.leaf { width: 60px; height: 28px; }.leaf-one { left: 25px; top: 22px; }.leaf-two { right: 19px; bottom: 20px; }.fruit-orange { width: 63px; height: 63px; left: 43px; top: 59px; font-size: 38px; }.fruit-apple { width: 76px; height: 76px; left: 106px; top: 91px; font-size: 48px; }.fruit-lemon { width: 58px; height: 58px; right: 27px; top: 83px; font-size: 36px; }.fruit-tomato { width: 45px; height: 45px; left: 32px; bottom: 20px; font-size: 27px; }.fruit-berry { width: 40px; height: 40px; right: 68px; bottom: 20px; font-size: 25px; }.market-card { left: 16px; bottom: 14px; padding: 8px 11px; font-size: 10px; }.market-card small { padding-left: 21px; font-size: 8px; }.art-caption { right: 13px; top: 162px; font-size: 7px; }.art-caption strong { font-size: 10px; } }
+
+/* A wider composition gives every fruit its own visual space. */
+.hero-art { width: min(560px, 48vw); height: 340px; border-radius: 50% 44% 48% 52%; }
+.hero { gap: clamp(28px, 4vw, 68px); }
+.hero-copy { flex: 1 1 500px; max-width: 540px; }
+.hero-art { flex: 0 1 min(560px, 48vw); min-width: 420px; }
+.hero-art::before { inset: 18px 22px; border-radius: 50% 44% 48% 52%; }
+.art-glow { width: 270px; height: 270px; right: 145px; top: 35px; }
+.sun { right: 145px; top: 30px; width: 138px; height: 138px; }
+.leaf-one { left: 54px; top: 40px; }
+.leaf-two { right: 38px; bottom: 34px; }
+.fruit-orange { left: 60px; top: 122px; }
+.fruit-apple { left: 202px; top: 190px; }
+.fruit-lemon { right: 85px; top: 126px; }
+.fruit-tomato { left: 350px; bottom: 36px; }
+.fruit-berry { right: 26px; bottom: 42px; }
+.market-card { left: 28px; bottom: 24px; }
+
+@media (max-width: 900px) {
+  .hero-art { width: min(460px, 48vw); height: 300px; }
+  .art-glow { width: 220px; height: 220px; right: 115px; top: 32px; }
+  .sun { right: 112px; top: 25px; width: 118px; height: 118px; }
+  .leaf-one { left: 42px; top: 34px; }
+  .fruit-orange { left: 48px; top: 104px; }
+  .fruit-apple { left: 162px; top: 164px; }
+  .fruit-lemon { right: 66px; top: 103px; }
+  .fruit-tomato { left: 290px; bottom: 30px; }
+  .fruit-berry { right: 21px; bottom: 34px; }
+}
+
+@media (max-width: 1100px) and (min-width: 651px) {
+  .hero-copy { max-width: 440px; }
+  .hero-art { flex-basis: 400px; min-width: 400px; height: 290px; }
+  .art-glow { width: 210px; height: 210px; right: 100px; }
+  .sun { right: 100px; width: 112px; height: 112px; }
+  .fruit-orange { left: 42px; top: 98px; transform: scale(.88); }
+  .fruit-apple { left: 145px; top: 154px; transform: scale(.88); }
+  .fruit-lemon { right: 56px; top: 96px; transform: scale(.88); }
+  .fruit-tomato { left: 255px; bottom: 25px; transform: scale(.88); }
+  .fruit-berry { right: 18px; bottom: 30px; transform: scale(.88); }
+}
+
+@media (max-width: 650px) {
+  .hero-art { width: 290px; height: 220px; border-radius: 50% 42% 48% 52%; }
+  .hero-art::before { inset: 14px; }
+  .art-glow { width: 140px; height: 140px; right: 67px; top: 38px; }
+  .sun { width: 88px; height: 88px; right: 67px; top: 19px; }
+  .leaf-one { left: 25px; top: 22px; }
+  .fruit-orange { left: 30px; top: 80px; }
+  .fruit-apple { left: 104px; top: 124px; }
+  .fruit-lemon { right: 31px; top: 78px; }
+  .fruit-tomato { left: 185px; bottom: 18px; }
+  .fruit-berry { right: 13px; bottom: 20px; }
+}
+
+/* Final arrangement: a light fruit canopy with clear space between each shape. */
+.hero-art { height: 340px; }
+.art-glow { right: 150px; top: 24px; }
+.sun { right: 150px; top: 20px; }
+.fruit-orange { left: 52px; top: 86px; }
+.fruit-apple { left: 196px; top: 66px; }
+.fruit-lemon { right: 76px; top: 84px; }
+.fruit-tomato { left: 322px; top: 184px; bottom: auto; }
+.fruit-berry { right: 22px; top: 190px; bottom: auto; }
+.market-card { bottom: 22px; }
+
+@media (max-width: 900px) {
+  .hero-art { height: 300px; }
+  .art-glow { right: 116px; top: 20px; }
+  .sun { right: 116px; top: 17px; }
+  .fruit-orange { left: 42px; top: 74px; }
+  .fruit-apple { left: 156px; top: 56px; }
+  .fruit-lemon { right: 58px; top: 72px; }
+  .fruit-tomato { left: 268px; top: 160px; }
+  .fruit-berry { right: 16px; top: 166px; }
+}
+
+@media (max-width: 650px) {
+  .hero-art { height: 220px; }
+  .art-glow { right: 68px; top: 20px; }
+  .sun { right: 68px; top: 15px; }
+  .fruit-orange { left: 25px; top: 54px; }
+  .fruit-apple { left: 99px; top: 43px; }
+  .fruit-lemon { right: 28px; top: 55px; }
+  .fruit-tomato { left: 174px; top: 126px; }
+  .fruit-berry { right: 10px; top: 135px; }
+  .market-card { bottom: 12px; }
+}
+
+/* Give each fruit a clear orbit inside the bubble. */
+.fruit-orange { left: 34px; top: 106px; transform: scale(.9); }
+.fruit-apple { left: 190px; top: 48px; transform: scale(.82); }
+.fruit-lemon { right: 42px; top: 104px; transform: scale(.88); }
+.fruit-tomato { left: 305px; top: 214px; transform: scale(.82); }
+.fruit-berry { right: 16px; top: 218px; transform: scale(.82); }
+
+@media (max-width: 900px) {
+  .fruit-orange { left: 22px; top: 102px; }
+  .fruit-apple { left: 154px; top: 28px; }
+  .fruit-lemon { right: 20px; top: 104px; }
+  .fruit-tomato { left: 150px; top: 206px; }
+  .fruit-berry { right: 5px; top: 232px; }
+}
+
+@media (max-width: 650px) {
+  .fruit-orange { left: 14px; top: 70px; transform: scale(.78); }
+  .fruit-apple { left: 100px; top: 24px; transform: scale(.68); }
+  .fruit-lemon { right: 8px; top: 72px; transform: scale(.74); }
+  .fruit-tomato { left: 116px; top: 158px; transform: scale(.62); }
+  .fruit-berry { right: 3px; top: 178px; transform: scale(.62); }
+}

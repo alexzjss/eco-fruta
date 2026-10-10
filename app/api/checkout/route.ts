@@ -28,13 +28,7 @@ export async function POST(request: Request) {
       if (!product || !Number.isInteger(item.quantity) || item.quantity < 1 || item.quantity > product.stock) {
         throw new Error('Um dos produtos não está disponível.');
       }
-      return {
-        id: product.id,
-        title: product.name,
-        quantity: item.quantity,
-        currency_id: 'BRL',
-        unit_price: product.price
-      };
+      return { id: product.id, title: product.name, quantity: item.quantity, currency_id: 'BRL', unit_price: product.price };
     });
     const subtotal = items.reduce((total, item) => total + item.unit_price * item.quantity, 0);
     const shippingFee = 8;

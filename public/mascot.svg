@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-label="Mascote Eco fruta">
+  <circle cx="40" cy="40" r="37" fill="#f7ce78"/>
+  <path d="M20 30 16 15l15 8c6-4 12-4 18 0l15-8-4 16c4 6 4 15 0 22-5 9-13 14-20 14s-15-5-20-14c-4-7-4-16 0-23Z" fill="#789b62"/>
+  <path d="M26 43c0-9 6-15 14-15s14 6 14 15c0 12-7 19-14 19s-14-7-14-19Z" fill="#f5eee2"/>
+  <circle cx="34" cy="42" r="3" fill="#5c3d2e"/><circle cx="46" cy="42" r="3" fill="#5c3d2e"/>
+  <path d="M36 51c3 3 5 3 8 0" fill="none" stroke="#5c3d2e" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="40" cy="48" r="2.5" fill="#5c3d2e"/>
+</svg>
